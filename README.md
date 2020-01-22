@@ -1,6 +1,6 @@
 # Rabatt Rechner
 
-Testing exercise finding tests for boundary conditions.
+Exercise for finding tests for boundary conditions.
 
 ## License
 
