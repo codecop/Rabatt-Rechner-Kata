@@ -1,16 +1,35 @@
 package biz.shop;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rabattrechner {
 
     private final BigDecimal noRabatt = BigDecimal.ZERO;
-    private final BigDecimal threshold = new BigDecimal(1000);
-    private final BigDecimal percentage = new BigDecimal(3).divide(new BigDecimal(100));
+
+    static class DiscountLevel {
+        public final BigDecimal threshold;
+        public final BigDecimal percentage;
+
+        public DiscountLevel(BigDecimal threshold, BigDecimal percentage) {
+            this.threshold = threshold;
+            this.percentage = percentage;
+        }
+    }
+
+    private final List<DiscountLevel> levels = new ArrayList<>();
+
+    public void addDiscountLevel(BigDecimal threshold, int percentage) {
+        BigDecimal percentageValue = new BigDecimal(percentage).divide(new BigDecimal(100));
+        levels.add(new DiscountLevel(threshold, percentageValue));
+    }
 
     public BigDecimal calcRabattFor(BigDecimal purchase) {
-        if (purchase.compareTo(threshold) >= 0) {
-            return purchase.multiply(percentage);
+        for (DiscountLevel level : levels) {
+            if (purchase.compareTo(level.threshold) >= 0) {
+                return purchase.multiply(level.percentage);
+            }
         }
         return noRabatt;
     }

@@ -5,11 +5,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import java.math.BigDecimal;
 
 import org.hamcrest.Matcher;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RabattrechnerTest {
 
     private Rabattrechner rechner = new Rabattrechner();
+
+    @BeforeEach
+    void setUpDiscount() {
+        rechner.addDiscountLevel(new BigDecimal(1000), 3);
+    }
 
     @Test
     void shouldGiveNoRabattForPurchaseBelow1000Eur() {
