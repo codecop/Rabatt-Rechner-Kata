@@ -1,9 +1,12 @@
 {
   "name": "rabatt-rechner",
   "version": "1.0.0",
-  "description": "Rebatt Rechner",
+  "description": "Rabatt Rechner",
   "author": "Peter 'Code Cop' Kofler",
   "license": "BSD-3-Clause",
+  "dependencies": {
+    "bigdecimal": "0.6.1"
+  },
   "devDependencies": {
     "@types/chai": "4.1.4",
     "@types/mocha": "5.2.5",
