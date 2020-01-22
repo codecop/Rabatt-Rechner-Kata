@@ -1,4 +1,4 @@
-# Rabatt Rechner
+# Rabatt Rechner (Discount Calculator)
 
 Exercise for finding tests for boundary conditions.
 

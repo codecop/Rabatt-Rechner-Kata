@@ -10,8 +10,8 @@ function DiscountLevel(threshold, percentage) {
   this.percentage = percentage;
 }
 
-function Rabattrechner() {
-  this.noRabatt = new bigdecimal.BigDecimal(0);
+function RabattRechner() {
+  this.noDiscount = new bigdecimal.BigDecimal(0);
   this.levels = [];
 }
 
@@ -19,24 +19,24 @@ function Rabattrechner() {
  * @param {bigdecimal.BigDecimal} threshold
  * @param {number} percentage
  */
-Rabattrechner.prototype.addDiscountLevel = function(threshold, percentage) {
+RabattRechner.prototype.addDiscountLevel = function(threshold, percentage) {
   /** @type {bigdecimal.BigDecimal} */
-  var percentageValue = new bigdecimal.BigDecimal(percentage).divide(new bigdecimal.BigDecimal(100));
-  this.levels.push(new DiscountLevel(threshold, percentageValue));
+  var decimalPercentage = new bigdecimal.BigDecimal(percentage).divide(new bigdecimal.BigDecimal(100));
+  this.levels.push(new DiscountLevel(threshold, decimalPercentage));
 };
 
 /**
  * @param {bigdecimal.BigDecimal} purchase
  */
-Rabattrechner.prototype.calcRabattFor = function(purchase) {
+RabattRechner.prototype.discountFor = function(purchase) {
   for (var i = 0; i < this.levels.length; i++) {
     if (purchase.compareTo(this.levels[i].threshold) >= 0) {
       return purchase.multiply(this.levels[i].percentage);
     }
   }
-  return this.noRabatt;
+  return this.noDiscount;
 };
 
 module.exports = {
-  Rabattrechner
+  RabattRechner: RabattRechner
 };

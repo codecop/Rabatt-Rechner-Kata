@@ -8,13 +8,13 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RabattrechnerTest {
+class RabattRechnerTest {
 
-    private Rabattrechner rechner = new Rabattrechner();
+    private RabattRechner calculator = new RabattRechner();
 
     @BeforeEach
     void setUpDiscount() {
-        rechner.addDiscountLevel(new BigDecimal(1000), 3);
+        calculator.addDiscountLevel(new BigDecimal(1000), 3);
     }
 
     @Test

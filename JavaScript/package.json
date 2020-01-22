@@ -1,7 +1,7 @@
 {
   "name": "rabatt-rechner",
   "version": "1.0.0",
-  "description": "Rabatt Rechner",
+  "description": "Discount Calculator",
   "author": "Peter 'Code Cop' Kofler",
   "license": "BSD-3-Clause",
   "dependencies": {
