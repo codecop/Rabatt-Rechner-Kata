@@ -11,9 +11,8 @@ public class Rabattrechner {
     public BigDecimal calcRabattFor(BigDecimal purchase) {
         if (purchase.compareTo(threshold) >= 0) {
             return purchase.multiply(percentage);
-        } else {
-            return noRabatt;
         }
+        return noRabatt;
     }
 
 }
