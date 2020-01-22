@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+coverage
+.stryker-tmp
+
+# Eclipse
+.project
+.settings
+.classpath
+
+# IDEA
+.idea
+*.iml
+*.iwr
