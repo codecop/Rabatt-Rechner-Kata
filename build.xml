@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Package" basedir="." default="zip">
+
+    <basename property="prj.name" file="${basedir}" />
+    <property name="prj.zip-name" value="../${prj.name}.zip"/>
+
+    <target name="clean" description="Remove all downloaded files">
+        <delete includeEmptyDirs="true" defaultexcludes="false" quiet="true">
+            <!-- NPM -->
+            <fileset dir="JavaScript/node_modules" />
+            <!-- Maven -->
+            <fileset dir="Java/target" />
+            <!-- Eclipse files -->
+            <fileset dir="Java/.settings" />
+            <fileset dir="Java" includes=".*" />
+            <!-- Generated dependencies -->
+            <fileset dir="Java/lib" />
+        </delete>
+    </target>
+
+    <target name="rewrite" description="Rewrite Eclipse classpath">
+        <replace file="Java/.classpath" token="M2_REPO" value="lib" />
+        <replace file="Java/.classpath" token='kind="var"' value='kind="lib"' />
+    </target>
+
+    <target name="zip" description="Create package">
+        <delete file="${prj.zip-name}" />
+        <zip destfile="${prj.zip-name}">
+            <zipfileset dir="." prefix="${prj.name}">
+                <!-- ignore build script -->
+                <exclude name="build.bat" />
+                <exclude name="build.xml" />
+                <exclude name="**/*.bak" />
+                <!-- ignore classes -->
+                <exclude name="Java/target" />
+                <!-- ignore git -->
+                <exclude name=".git" />
+                <exclude name="**/.gitignore" />
+            </zipfileset>
+         </zip>
+    </target>
+
+</project>

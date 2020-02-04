@@ -10,3 +10,6 @@ target
 .settings
 .classpath
 .project
+
+# Dependencies
+lib/

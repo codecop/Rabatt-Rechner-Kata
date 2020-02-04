@@ -64,6 +64,16 @@
                     <threads>4</threads>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <classpathContainers>
+                        <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</classpathContainer>
+                    </classpathContainers>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
