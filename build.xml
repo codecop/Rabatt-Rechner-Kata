@@ -29,13 +29,20 @@
             <zipfileset dir="." prefix="${prj.name}">
                 <!-- ignore build script -->
                 <exclude name="build.bat" />
+                <exclude name="build.sh" />
                 <exclude name="build.xml" />
                 <exclude name="**/*.bak" />
                 <!-- ignore classes -->
-                <exclude name="Java/target" />
+                <exclude name="Java/target/" />
                 <!-- ignore git -->
                 <exclude name=".git" />
                 <exclude name="**/.gitignore" />
+                <!-- ignore idea -->
+                <exclude name="**/.idea/" />
+                <exclude name="**/*.iml" />
+                <!-- ignore JavaScript build outputs -->
+                <exclude name="JavaScript/coverage/" />
+                <exclude name="JavaScript/.nyc_output/" />
             </zipfileset>
          </zip>
     </target>
