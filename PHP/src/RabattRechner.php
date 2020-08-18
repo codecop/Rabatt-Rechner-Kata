@@ -1,6 +1,7 @@
 <?php
 namespace Shop;
 
+// see https://github.com/brick/math
 use Brick\Math\BigDecimal;
 
 class RabattRechner
