@@ -15,5 +15,9 @@ cd JavaScript
 npm install
 cd ..
 
+cd TypeScript
+npm install
+cd ..
+
 ant zip
 # ant clean
