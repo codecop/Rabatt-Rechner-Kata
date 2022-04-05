@@ -12,3 +12,5 @@ coverage
 .idea
 *.iml
 *.iwr
+
+ignore_test.js
