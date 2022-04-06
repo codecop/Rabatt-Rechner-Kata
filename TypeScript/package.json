@@ -4,6 +4,7 @@
     "description": "Discount Calculator",
     "author": "Peter 'Code Cop' Kofler",
     "license": "BSD-3-Clause",
+    "type": "module",
     "dependencies": {
         "bigdecimal": "0.6.1"
     },
