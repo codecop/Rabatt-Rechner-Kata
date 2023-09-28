@@ -63,4 +63,4 @@ it breaks encapsulation for tests, has to be asked for alternatives
 > .equal does not work for bigdecimal, use compareTo function for expectations
 
 Ok now it runs and most tests succeed.
-2 failures:
+2 failures. The assertions had already rounding errors. This is tricky.

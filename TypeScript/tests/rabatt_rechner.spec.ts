@@ -53,7 +53,8 @@ describe("Rabatt Rechner", () => {
     const discount = calculator.discountFor(purchase);
 
     // Assert
-    const expectedDiscount = purchase.multiply(new BigDecimal(0.1));
+    // const expectedDiscount = purchase.multiply(new BigDecimal(0.1));
+    const expectedDiscount = new BigDecimal(100);
     expect(discount.compareTo(expectedDiscount)).toBe(0);
   });
 
@@ -67,7 +68,8 @@ describe("Rabatt Rechner", () => {
     const discount = calculator.discountFor(purchase);
 
     // Assert
-    const expectedDiscount = purchase.multiply(new BigDecimal(0.2));
+    // const expectedDiscount = purchase.multiply(new BigDecimal(0.2)); // haha, this already has rounding errors
+    const expectedDiscount = new BigDecimal(250);
     expect(discount.compareTo(expectedDiscount)).toBe(0);
   });
 
