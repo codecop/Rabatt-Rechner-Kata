@@ -1,0 +1,56 @@
+> list test cases as bulled list for the class class RabattRechner { ...
+
+Here is a list of possible test cases for the RabattRechner class:
+
+(1): discountFor method returns noDiscount when the purchase amount is 0.
+(2): discountFor method returns noDiscount when no discount levels have been added.
+(3): discountFor method returns the correct discount amount when the purchase amount is equal to a discount level threshold.
+(4): discountFor method returns the correct discount amount when the purchase amount is greater than a discount level threshold.
+(5): discountFor method returns the correct discount amount when the purchase amount is less than all discount level thresholds.
+(6): addDiscountLevel method adds a new discount level to the levels array.
+These are just a few examples of test cases that can be written for the RabattRechner class. You can add additional test cases based on your specific requirements and edge cases.
+
+Master test cases were
+* shouldGiveNoDiscountForPurchaseBelow1000Eur
+* shouldGiveNoDiscountForPurchaseJustBelow1000Eur
+* shouldGive3PercentDiscountForPurchaseOfExactly1000Eur
+* shouldGive3PercentDiscountForPurchaseAbove1000Eur
+
+Testen aber nicht alles. Was würde ich testen:
+1 Rabatt Staffel Boundary = 4 cases (= compareTo mit >= )
+  - ist auch keiner in Schleife zieht,
+  - ist auch erster in Schleife zieht,
+  == (3), (4), (5)
+2 Rabatt Staffeln und grössere zieht
+  - ev. redundant zu nimmt 1. der Schleife
+2 Rabatt Staffeln und kleinere zieht (= nimmt letzten in der Schleife, also kleinsten)
+vielleicht keine Rabatt Staffeln (= nichts in der Schleife)
+ == (2)
+
+---
+
+> create these tests in file tests\rabatt_rechner.spec.ts
+
+(observation)
+* tests looked good
+* framework was used
+* worked fine?
+
+> format the test cases following AAA
+
+> expectedDiscount belongs into Assert block
+
+---
+
+> noDiscount is private, use the constant there
+
+> levels is private. how can we test that levels have been added?
+> no access to levels. how else do we know levels has been added?
+
+(observation)
+it breaks encapsulation for tests, has to be asked for alternatives
+
+---
+
+
+});
