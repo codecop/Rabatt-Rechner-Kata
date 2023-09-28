@@ -27,6 +27,13 @@ Testen aber nicht alles. Was würde ich testen:
 vielleicht keine Rabatt Staffeln (= nichts in der Schleife)
  == (2)
 
+(1) ist auch ok
+
+(observation)
+für die Testfälle, ganz gut, es fehlen 2:
+* Boundary genau drunter Limit
+* dass Staffeln iteriert werden
+
 ---
 
 > create these tests in file tests\rabatt_rechner.spec.ts
@@ -34,7 +41,6 @@ vielleicht keine Rabatt Staffeln (= nichts in der Schleife)
 (observation)
 * tests looked good
 * framework was used
-* worked fine?
 
 > format the test cases following AAA
 
@@ -52,5 +58,9 @@ it breaks encapsulation for tests, has to be asked for alternatives
 
 ---
 
+* worked fine? equal did not worked
 
-});
+> .equal does not work for bigdecimal, use compareTo function for expectations
+
+Ok now it runs and most tests succeed.
+2 failures:

@@ -32,6 +32,18 @@ describe("Rabatt Rechner", () => {
     expect(discount).toEqual(noDiscount);
   });
 
+  it("should return a non-zero discount when levels have been added", () => {
+    // Arrange
+    calculator.addDiscountLevel(new BigDecimal(1000), 10);
+    const purchase = new BigDecimal(1000);
+
+    // Act
+    const discount = calculator.discountFor(purchase);
+
+    // Assert
+    expect(discount.compareTo(noDiscount)).not.toBe(0);
+  });
+
   it("should return the correct discount amount when the purchase amount is equal to a discount level threshold", () => {
     // Arrange
     calculator.addDiscountLevel(new BigDecimal(1000), 10);
@@ -41,7 +53,8 @@ describe("Rabatt Rechner", () => {
     const discount = calculator.discountFor(purchase);
 
     // Assert
-    expect(discount).toEqual(purchase.multiply(new BigDecimal(0.1)));
+    const expectedDiscount = purchase.multiply(new BigDecimal(0.1));
+    expect(discount.compareTo(expectedDiscount)).toBe(0);
   });
 
   it("should return the correct discount amount when the purchase amount is greater than a discount level threshold", () => {
@@ -54,7 +67,8 @@ describe("Rabatt Rechner", () => {
     const discount = calculator.discountFor(purchase);
 
     // Assert
-    expect(discount).toEqual(purchase.multiply(new BigDecimal(0.2)));
+    const expectedDiscount = purchase.multiply(new BigDecimal(0.2));
+    expect(discount.compareTo(expectedDiscount)).toBe(0);
   });
 
   it("should return the correct discount amount when the purchase amount is less than all discount level thresholds", () => {
@@ -67,7 +81,7 @@ describe("Rabatt Rechner", () => {
     const discount = calculator.discountFor(purchase);
 
     // Assert
-    expect(discount).toEqual(noDiscount);
+    expect(discount.compareTo(noDiscount)).toBe(0);
   });
 
 });
