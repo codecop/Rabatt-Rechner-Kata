@@ -10,6 +10,9 @@ Here is a list of possible test cases for the RabattRechner class:
 (6): addDiscountLevel method adds a new discount level to the levels array.
 These are just a few examples of test cases that can be written for the RabattRechner class. You can add additional test cases based on your specific requirements and edge cases.
 
+Which tests do we need?
+Right BICEP and CORRECT
+
 Master test cases were
 * shouldGiveNoDiscountForPurchaseBelow1000Eur
 * shouldGiveNoDiscountForPurchaseJustBelow1000Eur
@@ -64,3 +67,13 @@ it breaks encapsulation for tests, has to be asked for alternatives
 
 Ok now it runs and most tests succeed.
 2 failures. The assertions had already rounding errors. This is tricky.
+
+Coverage looks good.
+75% useful
+
+---
+
+Work 1 hour
+Assess 1 hour
+
+---
