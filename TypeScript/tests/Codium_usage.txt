@@ -77,3 +77,9 @@ Work 1 hour
 Assess 1 hour
 
 ---
+
+FAZIT:
+
+20230927 Rabatt-Rechner-Kata
+- einfacher fall, 1 Schleife, 1 IF (3 branches)
+- soso gewesen, 75%
